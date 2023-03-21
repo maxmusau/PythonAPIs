@@ -77,8 +77,8 @@ package com.example.myproject
         }
     }
 # axtivity_main xml code
-    <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout
+        <?xml version="1.0" encoding="utf-8"?>
+        <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -102,4 +102,4 @@ package com.example.myproject
 
 
 
-    </LinearLayout>
+        </LinearLayout>
