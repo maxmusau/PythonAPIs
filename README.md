@@ -78,28 +78,28 @@ package com.example.myproject
     }
 # axtivity_main xml code
     <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#CFE4F5"
-    tools:context=".MainActivity">
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/progressbar"
-        android:layout_marginLeft="10dp"/>
-    <androidx.recyclerview.widget.RecyclerView
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/recycler"
-        tools:listitem="@layout/single_item">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#CFE4F5"
+        tools:context=".MainActivity">
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressbar"
+            android:layout_marginLeft="10dp"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recycler"
+            tools:listitem="@layout/single_item">
 
-    </androidx.recyclerview.widget.RecyclerView>
+        </androidx.recyclerview.widget.RecyclerView>
 
 
 
-</LinearLayout>
+    </LinearLayout>
