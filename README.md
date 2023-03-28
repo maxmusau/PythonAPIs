@@ -391,3 +391,53 @@ package com.example.myproject
                 response = jsonify({"sucess":"Paid {} - {}".format(phone, amount)})
                 response.status_code = 200
                 return response
+ ## Mpesa integration kotlin code
+     //mpesa integration
+            val amount=findViewById<EditText>(R.id.amount)
+            val phone=findViewById<EditText>(R.id.phone)
+            amount.visibility=View.GONE
+            progressbar.visibility=View.GONE
+            book.setOnClickListener {
+                amount.visibility=View.VISIBLE
+                progressbar.visibility=View.VISIBLE
+                val client = AsyncHttpClient(true,80,443)
+                val body= JSONObject()
+    //
+                body.put("amount",amount.text.toString())
+                body.put("phone",phone.text.toString())
+                val con_body= StringEntity(body.toString())
+                client.post(this,"https://musau.pythonanywhere.com/mpesa_payment",con_body,
+                    "application/json",
+
+                    object : JsonHttpResponseHandler() {
+
+                        override fun onSuccess(
+                            statusCode: Int,
+                            headers: Array<out Header>?,
+                            response: JSONObject?
+                        ) {
+                            println("printing after accessing onsuccess")
+                            if (statusCode ==200){
+                                Toast.makeText(applicationContext,"Please Confirm booking through mpesa pin",
+                                    Toast.LENGTH_LONG).show()
+                            }
+                            else{
+                                Toast.makeText(applicationContext,"Mpesa payment not successful $statusCode",
+                                    Toast.LENGTH_LONG).show()
+                            }
+                            //super.onSuccess(statusCode, headers, response)
+                        }
+
+                        override fun onFailure(
+                            statusCode: Int,
+                            headers: Array<out Header>?,
+                            throwable: Throwable?,
+                            errorResponse: JSONObject?
+                        ) {
+                            println("on failure")
+                            Toast.makeText(applicationContext,"Something Went wrong $statusCode", Toast.LENGTH_LONG).show()
+                        }
+
+                    }
+                )
+            }
